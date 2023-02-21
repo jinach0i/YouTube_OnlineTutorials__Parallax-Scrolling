@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>첫 parallax with scroll</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <h1><a href="./index.html">Logo</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li class="on"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Works</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="container">
+            <section id="entrance">
+                <img src="./img/stars.png" alt="별" class="stars">
+                <img src="./img/moon.png" alt="달" class="moon">
+                <img src="./img/mountains_behind.png" alt="뒷산" class="mountains-behind">
+                <h2 class="title">Moon Light</h2>
+                <a href="#quotes" class="explore-btn">Explore</a>
+                <img src="./img/mountains_front.png" alt="앞산 배경" class="mountains-front">
+            </section>
+            <section id="quotes">
+                <h2>Moonlight drowns out all but...</h2>
+                <p>bright stars more than anything.</p>
+            </section>
+        </div>
+
+    </div>
+    <script>
+        let header= document.querySelector('#header');
+        let stars=document.querySelector('.stars');
+        let moon=document.querySelector('.moon');
+        let mountainsBehind=document.querySelector('.mountains-behind');
+        let mountainsFront=document.querySelector('.mountains-front');
+        let title= document.querySelector('.title');
+        let exploreBtn= document.querySelector('.explore-btn');
+        window.addEventListener('scroll', function (e) {
+            let value=window.scrollY;
+            stars.style.left=value*0.25+'px';
+            moon.style.top=value*1.01+'px';
+            mountainsBehind.style.top=value*0.5+'px';
+            mountainsFront.style.top=value*0+'px';
+            title.style.marginTop=value*1.5+'px';
+            title.style.marginRight=value*3.5+'px';
+            exploreBtn.style.marginTop=value*1.5+'px';
+            header.style.marginTop=value*0.5+'px';
+            
+
+        }); 
+    </script>
+</body>
+</html>
